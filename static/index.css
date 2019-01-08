@@ -1,0 +1,29 @@
+* {
+	font-family: 'Roboto Slab', serif;
+
+	margin: 0;
+	padding: 0;
+
+	user-select: none;
+}
+
+canvas {
+	display: block;
+}
+
+#splash > * {
+	display: block;
+
+	margin: auto;
+	text-align: center;
+}
+
+#splash > h1 {
+	color: #ECF0F1;
+
+	font-size: 4em;
+}
+
+#splash > img {
+	width: 100vw;
+}

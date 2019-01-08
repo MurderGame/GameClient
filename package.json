@@ -1,0 +1,25 @@
+{
+  "name": "GameClient",
+  "version": "1.0.0",
+  "description": "MurderGame game client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-win": "electron-packager . MurderGame --platform=win32 --out dist --icon icon.ico"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MurderGame/GameClient.git"
+  },
+  "keywords": [],
+  "author": "Ethan Davis",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/MurderGame/GameClient/issues"
+  },
+  "homepage": "https://github.com/MurderGame/GameClient",
+  "devDependencies": {
+    "electron": "^4.0.1",
+    "electron-packager": "^13.0.1"
+  }
+}
