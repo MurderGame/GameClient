@@ -8,41 +8,25 @@ let win = null
 const appMenu = require(path.join(__dirname, 'src', 'appMenu.js'))
 
 app.on('ready', () => {
-	let splashWin = new BrowserWindow({
-		'width': 300,
-		'height': 500,
-		'transparent': true,
-		'frame': false,
+	win = new BrowserWindow({
+		'width': 1280,
+		'height': 720,
+		'resizable': false,
 		'webPreferences': {
 			'nodeIntegration': true
-		},
-		'resizable': false
+		}
 	})
 
-	splashWin.loadURL('file:' + path.join(__dirname, 'static', 'splash.html'))
+	win.loadURL('file:' + path.join(__dirname, 'static', 'index.html'))
 
-	splashWin.setMenu(null)
+	if (args.debug) {
+		win.webContents.toggleDevTools()
+	}
+	else win.setMenu(appMenu)
 
-	setTimeout(() => {
-		win = new BrowserWindow({
-			'webPreferences': {
-				'nodeIntegration': true
-			}
-		})
+	win.on('closed', () => {
+		win = null
 
-		splashWin.close()
-
-		win.loadURL('file:' + path.join(__dirname, 'static', 'index.html'))
-
-		if (args.debug) {
-			win.webContents.toggleDevTools()
-		}
-		else win.setMenu(appMenu)
-
-		win.on('closed', () => {
-			win = null
-
-			process.exit(1)
-		})
-	}, 3000)
+		process.exit(1)
+	})
 })

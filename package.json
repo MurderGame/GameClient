@@ -23,6 +23,7 @@
     "electron-packager": "^13.0.1"
   },
   "dependencies": {
-    "gar": "^1.0.4"
+    "gar": "^1.0.4",
+    "protocore": "^1.2.2"
   }
 }
