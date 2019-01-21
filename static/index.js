@@ -39,8 +39,7 @@ const render = () => {
 				'y': entity.y,
 				'width': entity.width,
 				'height': entity.height,
-				'color': entity.color,
-				'borderColor': null
+				'backgroundColor': entity.color
 			}))
 
 			game.add(new canvax.Text({
@@ -58,8 +57,7 @@ const render = () => {
 				'x': entity.x,
 				'y': entity.y,
 				'radius': entity.width,
-				'backgroundColor': entity.color,
-				'borderColor': null
+				'backgroundColor': entity.color
 			}))
 		}
 	}

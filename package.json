@@ -23,7 +23,7 @@
     "electron-packager": "^13.0.1"
   },
   "dependencies": {
-    "canvaxjs": "^0.5.0",
+    "canvaxjs": "^0.6.0",
     "gar": "^1.0.4",
     "protocore": "^1.2.2"
   }
