@@ -2,6 +2,7 @@ const path = require('path')
 const os = require('os')
 
 const {app} = require('electron')
+const canvax = require('canvaxjs')
 
 const game = new canvax.Renderer(document.querySelector('#game'))
 
@@ -18,8 +19,8 @@ setInterval(resizeCanvas, 2000)
 
 const movementUpdates = () => {	
 	entities.forEach((entity) => {
-		entity.xvel *= 0.93
-		entity.yvel *= 0.93
+		entity.xvel *= 0.91
+		entity.yvel *= 0.91
 		
 		entity.x += entity.xvel
 		entity.y += entity.yvel
@@ -33,12 +34,33 @@ const render = () => {
 		const entity = entities[i]
 		
 		if (entity.type === 0) {
-			game.add(new canvax.Rectangle(entity.x, entity.y, entity.width, entity.height, entity.color, 'none', 0))
-			game.add(new canvax.Text(entity.x, entity.y - 20, entity.name, '20px Arial', '#000000', 'center'))
+			game.add(new canvax.Rectangle({
+				'x': entity.x,
+				'y': entity.y,
+				'width': entity.width,
+				'height': entity.height,
+				'color': entity.color,
+				'borderColor': null
+			}))
+
+			game.add(new canvax.Text({
+				'x': entity.x,
+				'y': entity.y - 20,
+				'text': entity.name,
+				'font': '20px Arial',
+				'color': '#000000',
+				'alignment': 'center'
+			}))
 		}
 		
 		if (entity.type === 1) {
-			game.add(new canvax.Circle(entity.x, entity.y, entity.width, entity.color, 'none'))
+			game.add(new canvax.Circle({
+				'x': entity.x,
+				'y': entity.y,
+				'radius': entity.width,
+				'backgroundColor': entity.color,
+				'borderColor': null
+			}))
 		}
 	}
 	
@@ -47,6 +69,6 @@ const render = () => {
 	window.requestAnimationFrame(render)
 }
 
-setInterval(movementUpdates, 10)
+setInterval(movementUpdates, 5)
 
 render()
