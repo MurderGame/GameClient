@@ -1,7 +1,7 @@
 const path = require('path')
 const os = require('os')
 
-const {app} = require('electron')
+const {app, shell} = require('electron')
 const canvax = require('canvaxjs')
 
 const game = new canvax.Renderer(document.querySelector('#game'))

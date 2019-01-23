@@ -7,6 +7,10 @@
 	user-select: none;
 }
 
+body {
+	background-color: #F7F7F7;
+}
+
 canvas {
 	display: block;
 }
@@ -26,4 +30,24 @@ canvas {
 
 #splash > img {
 	width: 100vw;
+}
+
+#deathDisplay {
+	display: none;
+
+	text-align: center;
+}
+
+#deathDisplay > h2 {
+	font-size: 3em;
+}
+
+#deathDisplay > button {
+	width: 300px;
+	height: 100px;
+	
+	font-size: 1.4em;
+	
+	background-color: #FFFFFF;
+	border: none;
 }

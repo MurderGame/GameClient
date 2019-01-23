@@ -18,12 +18,22 @@ abstractor.on('render', (data) => {
 	entities = data.entities
 })
 
+abstractor.on('dead', (data) => {
+	document.querySelector('canvas').style.display = 'none'
+	document.querySelector('#deathDisplay').style.display = 'block'
+})
+
+document.querySelector('#respawnButton').onclick = () => {
+	document.querySelector('#deathDisplay').style.display = 'none'
+	document.querySelector('canvas').style.display = 'block'
+	
+	abstractor.send('respawn', {})
+}
+
 const socket = net.createConnection(5135)
 
 socket.pipe(abstractor)
 abstractor.pipe(socket)
-
-
 
 socket.on('connect', () => {
 	console.log('Connected.')
