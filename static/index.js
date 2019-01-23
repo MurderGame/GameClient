@@ -4,7 +4,7 @@ const os = require('os')
 const {app, shell} = require('electron')
 const canvax = require('canvaxjs')
 
-const game = new canvax.Renderer(document.querySelector('#game'))
+const game = new canvax.Renderer(document.querySelector('canvas'))
 
 let entities = []
 
@@ -41,7 +41,17 @@ const render = () => {
 				'height': entity.height,
 				'backgroundColor': entity.color
 			}))
+		}
+		else if (entity.type === 1) {
+			game.add(new canvax.Circle({
+				'x': entity.x,
+				'y': entity.y,
+				'radius': entity.width,
+				'backgroundColor': entity.color
+			}))
+		}
 
+		if (typeof entity.name === 'string' && entity.name.length > 0) {
 			game.add(new canvax.Text({
 				'x': entity.x,
 				'y': entity.y - 20,
@@ -49,15 +59,6 @@ const render = () => {
 				'font': '20px Arial',
 				'color': '#000000',
 				'alignment': 'center'
-			}))
-		}
-		
-		if (entity.type === 1) {
-			game.add(new canvax.Circle({
-				'x': entity.x,
-				'y': entity.y,
-				'radius': entity.width,
-				'backgroundColor': entity.color
 			}))
 		}
 	}

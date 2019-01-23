@@ -12,17 +12,22 @@
 	<script defer src="networking.js"></script>
 </head>
 <body>
-	<canvas id="game"></canvas>
+	<div id="status">
+		<h2 id="statusText">Connecting...</h2>
+	</div>
+
+	<div id="game">
+		<canvas></canvas>
+
+		<div id="chat">
+			<input type="text" id="chatBox"/>
+		</div>
+	</div>
 	
 	<div id="deathDisplay">
 		<h2>You died.</h2>
 		
-		<br />
-		
 		<button id="respawnButton">Respawn</button>
-		
-		<br />
-		<br />
 		
 		<p>&copy; 2019 <a onclick="shell.openExternal('https://ethanent.me')" href="#">Ethan Davis</a></p>
 	</div>
