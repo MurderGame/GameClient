@@ -25,6 +25,6 @@
   "dependencies": {
     "canvaxjs": "^0.6.0",
     "gar": "^1.0.4",
-    "protocore": "^1.2.2"
+    "protocore": "^2.0.1"
   }
 }

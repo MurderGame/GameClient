@@ -4,6 +4,8 @@ const os = require('os')
 const {app, shell} = require('electron')
 const canvax = require('canvaxjs')
 
+const sy=function sy(tag,attribs,children){if(!tag)throw new Error("Missing tag argument.");var gen=document.createElement(tag);if(attribs)Object.keys(attribs).forEach(function(attrib){return gen.setAttribute(attrib,attribs[attrib])});if(children)children.forEach(function(child){return child!==null?gen.appendChild(typeof child==="string"?document.createTextNode(child):child):null});return gen};
+
 const game = new canvax.Renderer(document.querySelector('canvas'))
 
 let entities = []
