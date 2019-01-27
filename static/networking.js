@@ -61,7 +61,7 @@ abstractor.on('render', (data) => {
 })
 
 abstractor.on('chat', (data) => {
-	addMessage(data.from + ': ' + data.message)
+	addMessage(data.message)
 })
 
 abstractor.on('dead', (data) => {
@@ -76,7 +76,7 @@ document.querySelector('#respawnButton').onclick = () => {
 	abstractor.send('respawn', {})
 }
 
-const socket = net.createConnection(5135, '10.70.6.112')
+const socket = net.createConnection(5135)
 
 socket.pipe(abstractor)
 abstractor.pipe(socket)
