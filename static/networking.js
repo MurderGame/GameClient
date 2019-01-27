@@ -90,6 +90,15 @@ abstractor.on('particle', (data) => {
 			'borderWeight': 10
 		})
 	}
+	else if (data.type === 1) {
+		particleEntity = new canvax.Circle({
+			'x': data.x,
+			'y': data.y,
+			'radius': 300,
+			'borderColor': data.color,
+			'borderWeight': 10
+		})
+	}
 
 	particles.push({
 		'type': data.type,

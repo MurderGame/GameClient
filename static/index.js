@@ -33,9 +33,18 @@ const movementUpdates = () => {
 
 	particles.forEach((particle, i) => {
 		if (particle.type === 0) {
-			particle.entity.radius += 4
+			particle.entity.radius += 5
 
 			if (particle.entity.radius > 3000) {
+				console.log('Deleting particle.')
+
+				particles.splice(i, 1)
+			}
+		}
+		else if (particle.type === 1) {
+			particle.entity.radius -= 3
+
+			if (particle.entity.radius <= 0) {
 				console.log('Deleting particle.')
 
 				particles.splice(i, 1)
