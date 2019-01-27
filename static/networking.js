@@ -56,8 +56,45 @@ document.body.addEventListener('keydown', (event) => {
 	}
 })
 
+let bgColor = ''
+
 abstractor.on('render', (data) => {
+	if (bgColor !== data.backgroundColor) {
+		console.log('Updating game background color.')
+
+		bgColor = data.backgroundColor
+
+		game.element.style.backgroundColor = data.backgroundColor
+	}
+
 	entities = data.entities
+})
+
+abstractor.on('blur', () => {
+	game.ctx.filter = 'blur(1px)'
+
+	setTimeout(() => {
+		game.ctx.filter = 'none'
+	}, 300)
+})
+
+abstractor.on('particle', (data) => {
+	let particleEntity
+
+	if (data.type === 0) {
+		particleEntity = new canvax.Circle({
+			'x': data.x,
+			'y': data.y,
+			'radius': 1,
+			'borderColor': data.color,
+			'borderWeight': 10
+		})
+	}
+
+	particles.push({
+		'type': data.type,
+		'entity': particleEntity
+	})
 })
 
 abstractor.on('chat', (data) => {
