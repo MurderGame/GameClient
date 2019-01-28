@@ -10,6 +10,8 @@ const generalScaling = 0.98
 
 const game = new canvax.Renderer(document.querySelector('canvas'))
 
+let scoreboard = []
+
 let entities = []
 const particles = []
 
@@ -108,10 +110,10 @@ const render = () => {
 
 		if (typeof entity.name === 'string' && entity.name.length > 0) {
 			game.add(new canvax.Text({
-				'x': entity.x,
+				'x': entity.x + (entity.type === 'circle' ? entity.radius : entity.width) / 2,
 				'y': entity.y - 20,
 				'text': entity.name,
-				'font': '20px Arial',
+				'font': '20px Roboto',
 				'color': '#000000',
 				'alignment': 'center'
 			}))

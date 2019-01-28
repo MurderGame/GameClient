@@ -70,6 +70,19 @@ abstractor.on('render', (data) => {
 	entities = data.entities
 })
 
+abstractor.on('scoreboard', (data) => {
+	scoreboard = data.scores
+
+	console.log('New scoreboard')
+	console.log(scoreboard)
+
+	document.querySelector('#scores').innerHTML = ''
+
+	for (let i = 0; i < scoreboard.length; i++) {
+		document.querySelector('#scores').appendChild(sy('p', {'class': 'score'}, [(i + 1) + '. ' + scoreboard[i].name + ' - ' + scoreboard[i].score]))
+	}
+})
+
 abstractor.on('blur', () => {
 	game.ctx.filter = 'blur(1px)'
 
@@ -97,6 +110,16 @@ abstractor.on('particle', (data) => {
 			'radius': 300,
 			'borderColor': data.color,
 			'borderWeight': 10
+		})
+	}
+	else {
+		particleEntity = new canvax.Text({
+			'x': data.x,
+			'y': data.y,
+			'text': 'UPDATE',
+			'alignment': 'center',
+			'font': '70px Arial',
+			'color': '#FF0000'
 		})
 	}
 
@@ -130,10 +153,6 @@ abstractor.pipe(socket)
 socket.on('connect', () => {
 	document.querySelector('#status').style.display = 'none'
 	document.querySelector('#game').style.display = 'block'
-	
-	addMessage('> Connected to server!')
-	
-	addMessage('Press \'t\' to chat.')
 
 	console.log('Connected.')
 	

@@ -1,5 +1,5 @@
 * {
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Roboto', sans-serif;
 
 	margin: 0;
 	padding: 0;
@@ -59,6 +59,34 @@ canvas {
 	
 	background-color: #FFFFFF;
 	border: none;
+}
+
+#scoreboard {
+	position: absolute;
+
+	width: 200px;
+	
+	overflow-x: hidden;
+	
+	padding-left: 10px;
+
+	top: 0px;
+	left: 0px;
+
+	z-index: 1100;
+
+	background-color: #313133AA;
+
+	color: #BFBCB8;
+}
+
+#scoreboard > h2 {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+#scores {
+	margin-bottom: 20px;
 }
 
 #chat {
