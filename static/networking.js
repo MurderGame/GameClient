@@ -145,16 +145,22 @@ document.querySelector('#respawnButton').onclick = () => {
 	abstractor.send('respawn', {})
 }
 
-const socket = net.createConnection(5135)
+const socket = new net.Socket()
 
-socket.pipe(abstractor)
-abstractor.pipe(socket)
+const connect = () => {
+	socket.connect(5135)
+
+	socket.pipe(abstractor)
+	abstractor.pipe(socket)
+}
 
 socket.on('connect', () => {
+	console.log('Connected.')
+
 	document.querySelector('#status').style.display = 'none'
 	document.querySelector('#game').style.display = 'block'
-
-	console.log('Connected.')
+	document.querySelector('#scoreboard').style.display = 'block'
+	document.querySelector('#chat').style.display = 'block'
 	
 	const names = os.userInfo().username.split('.')
 	
@@ -171,3 +177,10 @@ socket.on('error', (err) => {
 	document.querySelector('#game').style.display = 'none'
 	document.querySelector('#status').style.display = 'block'
 })
+
+setTimeout(() => {
+	document.querySelector('#splash').style.display = 'none'
+	document.querySelector('#status').style.display = 'flex'
+
+	connect()
+}, 3000)
