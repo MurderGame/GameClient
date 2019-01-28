@@ -110,7 +110,7 @@ const render = () => {
 
 		if (typeof entity.name === 'string' && entity.name.length > 0) {
 			game.add(new canvax.Text({
-				'x': entity.x + (entity.type === 'circle' ? entity.radius : entity.width) / 2,
+				'x': entity.x + (entity.type === 0 ? entity.width : 0) / 2,
 				'y': entity.y - 20,
 				'text': entity.name,
 				'font': '20px Roboto',
