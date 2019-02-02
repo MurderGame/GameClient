@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-win": "electron-packager . MurderGame --platform=win32 --out dist --icon icon.ico"
+    "build-win": "electron-packager . BlockParty --platform=win32 --out dist --icon icon.ico",
+    "build-mac": "electron-packager . BlockParty --platform=darwin --out dist --icon icon.icns"
   },
   "repository": {
     "type": "git",
