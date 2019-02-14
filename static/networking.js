@@ -148,7 +148,7 @@ document.querySelector('#respawnButton').onclick = () => {
 const socket = new net.Socket()
 
 const connect = () => {
-	socket.connect(5135)
+	socket.connect(5135, '35.227.153.41')
 
 	socket.pipe(abstractor)
 	abstractor.pipe(socket)
@@ -165,7 +165,7 @@ socket.on('connect', () => {
 	const names = os.userInfo().username.split('.')
 	
 	abstractor.send('profile', {
-		'name': names.map((name) => name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase()).join('.')
+		'name': names.map((name) => name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase()).join(' ')
 	})
 })
 

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-win": "electron-packager . BlockParty --platform=win32 --out dist --icon icon.ico",
-    "build-mac": "electron-packager . BlockParty --platform=darwin --out dist --icon icon.icns"
+    "build-win": "electron-builder --win",
+    "build-mac": "electron-builder --mac"
   },
   "repository": {
     "type": "git",
@@ -21,11 +21,15 @@
   "homepage": "https://github.com/MurderGame/GameClient",
   "devDependencies": {
     "electron": "^4.0.1",
-    "electron-packager": "^13.0.1"
+    "electron-builder": "^20.38.5"
   },
   "dependencies": {
     "canvaxjs": "^0.6.1",
     "gar": "^1.0.4",
     "protocore": "^2.0.1"
+  },
+  "build": {
+    "appId": "me.ethanent.blockparty",
+    "productName": "BlockParty"
   }
 }
