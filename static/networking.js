@@ -148,7 +148,7 @@ document.querySelector('#respawnButton').onclick = () => {
 const socket = new net.Socket()
 
 const connect = () => {
-	socket.connect(5135, '35.227.153.41')
+	socket.connect(8080, '35.227.153.41')
 
 	socket.pipe(abstractor)
 	abstractor.pipe(socket)
